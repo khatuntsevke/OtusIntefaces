@@ -11,9 +11,21 @@
 //   Ожидание в 3 секунды реализовать через Thread.Sleep(3000).
 //6. Реализовать все методы интерфейсов в классах. До этого пункта достаточно "throw new NotImplementedException();
 
+interface IRobot
+{
+    public string GetInfo();
+    public List<string> GetComponents();
+    public string GetRobotType() => "I am a simple robot.";
+}
 
-var robot = new Quadcopter();
+interface IChargeable
+{
+    public void Charge();
+    public string GetInfo();
+}
 
-robot.Charge();
-
+interface IFlyingRobot : IRobot
+{
+    public new string GetRobotType() => "I am a flying robot.";
+}
 

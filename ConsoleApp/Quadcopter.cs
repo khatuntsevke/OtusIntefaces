@@ -12,8 +12,27 @@
 //6. Реализовать все методы интерфейсов в классах. До этого пункта достаточно "throw new NotImplementedException();
 
 
-var robot = new Quadcopter();
+internal class Quadcopter: IFlyingRobot, IChargeable
+{
+    List<string> _components;
 
-robot.Charge();
+    public Quadcopter()
+    {
+        _components = new List<string>{ "rotor1", "rotor2", "rotor3", "rotor4" };
+    }
+    
+    public List<string> GetComponents() => _components;
 
+    public void Charge()
+    {
+        Console.WriteLine("Charging...");
+        Thread.Sleep(3000);
+        Console.WriteLine("Charged!");
+    }
 
+    public string GetInfo()
+    {
+        throw new NotImplementedException();
+    }
+    
+}
